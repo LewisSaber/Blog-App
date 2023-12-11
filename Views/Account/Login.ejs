@@ -1,0 +1,19 @@
+<div class="card mx-auto mt-5 text-center" style="width: 18rem;">
+    <div class="card-body">
+        <form method="post" action="/Account/Login">
+            <h1 class="h3 mb-3 font-weight-normal">Enter</h1>
+            <div class="container col-md-10 mx-auto">
+                <label for="Email" class="sr-only"></label>
+                <input type="text" id="Email" name="Email" class="form-control mb-2" placeholder="Login" required/>
+                <label for="Password" class="sr-only"></label>
+                <input type="password" id="Password" name="Password" class="form-control mb-2" placeholder="Password"
+                       required/>
+            </div>
+
+            <button class="btn btn-dark btn-block" type="submit">Enter</button>
+            <div class="mt-2">
+                <a style="color: black" href="/Account/Register">Register</a>
+            </div>
+        </form>
+    </div>
+</div>

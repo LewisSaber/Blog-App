@@ -1,0 +1,56 @@
+<div class="row">
+    <%- include("Navigation") %>
+    <div class="col-md-9 my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row my-1">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4>Posts</h4>
+                            <a href="/Post/CreatePost" class="btn btn-primary">Create New</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 table-responsive">
+                        <table class="table table-hover table-sm">
+                            <thead>
+                            <tr>
+                                <th>Post Name</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% for(const post of posts) { %>
+                                <tr>
+                                    <td>
+                                        <a class="text-dark"><%= post.title %></a>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group" role="group">
+
+                                            <a class="btn btn-outline-success btn-sm"
+                                               href="/Post/View?id=<%= post._id %>"
+                                               role="button">View</a>
+                                            <form method="post" action="/Post/Edit?id=<%= post._id %>">
+                                                <input class="d-none" name="published" value="<%= !post.published %>">
+                                                <button type="submit" class="btn btn-outline-warning btn-sm">
+                                                    <%= post.published ? "Unpublish" : "Publish" %></button>
+                                            </form>
+                                            <a class="btn btn-outline-info btn-sm" href="/Post/Edit?id=<%= post._id %>"
+                                               role="button">Edit</a>
+                                            <a class="btn btn-outline-danger btn-sm"
+                                               href="/Post/Delete?id=<%= post._id %>" role="button">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

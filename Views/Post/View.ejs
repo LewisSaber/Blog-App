@@ -1,0 +1,49 @@
+<div class="row">
+    <p class="text-left  mt-3" style=" font-size: 2.5rem">
+        <%= post.title %>
+    </p>
+</div>
+<div class="row mb-3">
+
+    <div class="col-1 pl-0 h-50 d-inline-block">
+        <img src="https://wallpapers-clan.com/wp-content/uploads/2023/05/cool-pfp-02.jpg" alt="Profile Picture"
+             class="mh-10 img-fluid rounded-circle ">
+    </div>
+
+
+    <div class="col">
+
+        <h5 class="author-name">
+            <%= post.author.name || post.author.email %>
+        </h5>
+        <p class="posted-on">
+            Posted on: <%= post.date.toLocaleDateString('en-us', {year: "numeric", month: "long", day: "numeric"}) %>
+        </p>
+    </div>
+</div>
+
+<div class="row" style="font-size: 1.3rem;white-space: pre-line;">
+    <%= post.content %>
+</div>
+
+<% if(authority){ %>
+    <div class="row" style="">
+        <a role="button" href="Edit?id=<%= post._id %>" class="btn btn-info">Edit</a>
+    </div>
+<% } %>
+<% if(user.isAuthentificated){ %>
+    <div class="row m-2">
+        <form action="/Comment/Add?id=<%= post._id %>" method="post" class="col-12">
+            <div class="form-group">
+                <label for="commentText" style="font-size: 2rem" class="m-2 form-label">Comments</label>
+                <textarea name="text" id="commentText" class="m-2 col-8 form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Add Comment</button>
+        </form>
+    </div>
+<% } %>
+<% for(const comment of comments){ %>
+    <%- include("../Shared/Partials/CommentView.ejs",{comment}) %>
+<% } %>
+
+<div class="m-5"></div>

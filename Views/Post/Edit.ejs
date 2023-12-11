@@ -1,0 +1,32 @@
+<form action="/Post/Edit/?id=<%= post._id %>" method="POST">
+    <div class="form-group row mt-4">
+        <div class="col-12">
+            <input type="text" name="title" class="form-control mb-2" placeholder="Post Title"
+                   value="<%= post.title %>" required/>
+        </div>
+
+    </div>
+    <div class=" form-group row mt-4">
+        <div class="col-12">
+            <input type="text" name="description" class="form-control mb-2" placeholder="Post Description"
+                   value="<%= post.description %>" required/>
+        </div>
+
+    </div>
+    <div id="post-content">
+        md
+
+    </div>
+
+    <div class="form-group row mt-4">
+        <div class="col-1 text-left">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        <div class="col-4 text-left">
+            <button type="submit" name="action" value="saveAndView" class="btn btn-primary">Save & View</button>
+        </div>
+        <div class="col-6 text-right">
+            <a role="button" class="btn btn-danger" href="/UserProfile/Posts">Cancel</a>
+        </div>
+    </div>
+</form>
