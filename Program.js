@@ -9,7 +9,7 @@ function main() {
     let app = new App()
     app.configureStaticFilesPath(path.join(__dirname, "public"))
     app.addCookiesParser()
-    app.addMongoDB("<insert mongodb connection string")
+    app.addMongoDB("mongodb+srv://LewisSaber:Ub9s8jyulMlQ1vhy@lewiscluster.vevmcub.mongodb.net/blogApp")
     app.addUserModel(require("./Models/User"))
     app.addAuthorization()
     app.setLoginPath("/Account/Login/")
