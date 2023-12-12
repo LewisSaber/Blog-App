@@ -1,4 +1,4 @@
-<form action="/Post/Edit/?id=<%= post._id %>" method="POST">
+<form action="/Post/Edit/?id=<%= post._id %>" method="POST" xmlns="http://www.w3.org/1999/html">
     <div class="form-group row mt-4">
         <div class="col-12">
             <input type="text" name="title" class="form-control mb-2" placeholder="Post Title"
@@ -9,14 +9,19 @@
     <div class=" form-group row mt-4">
         <div class="col-12">
             <input type="text" name="description" class="form-control mb-2" placeholder="Post Description"
-                   value="<%= post.description %>" required/>
+                   value="<%= post.description %>"/>
         </div>
 
     </div>
-    <div id="post-content">
-        md
 
+    <div class=" form-group row mt-4">
+        <div class="col-12">
+                <textarea style="height: 44vh" type="text" name="content" class="form-control mb-2"
+                          placeholder="Content"
+                          required><%= post.content %></textarea>
+        </div>
     </div>
+
 
     <div class="form-group row mt-4">
         <div class="col-1 text-left">
